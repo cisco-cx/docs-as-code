@@ -32,13 +32,28 @@ If you would like to create a clone of this repo in a consistent way, please com
 
 based on: https://help.github.com/en/github/creating-cloning-and-archiving-repositories/duplicating-a-repository
 
-### Create a new GitHub repo.
+### Create a new GitHub repository (using GitHub)
 
-Do NOT enable: "Initialize this repository with a README"
+Do NOT enable: "Initialize this repository with a README" - just create an empty repo (help is [here](https://help.github.com/en/github/getting-started-with-github/create-a-repo)).
 
-https://help.github.com/en/github/getting-started-with-github/create-a-repo
+```
+git init
+git remote add origin <insert the new git endpoint here>
+```
+
+Do NOT create a readme or any files.
+
+### Create the folder for your desired new documentation repo
+
+```
+mkdir <folder name>
+cd <folder name>
+cd ..
+```
 
 ### Create a bare clone of the example repo.
+
+Make sure you are not in the <new folder> before you do this. 
 
 ```
 git clone --bare git@www-github3.cisco.com:cxe/docs-as-code.git
@@ -46,16 +61,29 @@ git clone --bare git@www-github3.cisco.com:cxe/docs-as-code.git
 
 ### Mirror-push to your new docs repository.
 
+Duplicate the example starting point repo into your new folder:
+
 ```
 cd docs-as-code.git
-git push --mirror git@www-github3.cisco.com:cxe/new-docs-repo.git
-```
-
-### Remove the temporary local repository you created earlier.
-
-```
+git push --mirror <insert the new git endpoint here>
 cd ..
+```
+
+### Cleanup and Update 
+
+Remove the temporary local repository you created earlier:
+
+```
 rm -rf docs-as-code.git
+```
+
+Now pull the example contents into your new repo.  Note that you must state "origin" and "master" since your repo is completely bare.
+
+```
+cd <folder name>
+git pull origin master
+cd ..
+
 ```
 
 Your new docs repo should now be ready for use.

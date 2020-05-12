@@ -245,3 +245,6 @@ TSWLatexianTemp*
 */build
 common/pandoc/pandoc-bootstrap-template/
 *.DS_Store
+
+# adding emacs backups
+*~
