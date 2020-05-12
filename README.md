@@ -26,6 +26,40 @@ The examples provide a good start and include both a PlantUML and a Graphviz exa
 
 Documentation is treated the same way code is:  we review it through a pull request.  Create a pull request and have it reviewed.
 
+## Creating a New Repo
+
+If you would like to create a clone of this repo in a consistent way, please complete the following steps.
+
+based on: https://help.github.com/en/github/creating-cloning-and-archiving-repositories/duplicating-a-repository
+
+### Create a new GitHub repo.
+
+Do NOT enable: "Initialize this repository with a README"
+
+https://help.github.com/en/github/getting-started-with-github/create-a-repo
+
+### Create a bare clone of the example repo.
+
+```
+git clone --bare git@www-github3.cisco.com:cxe/docs-as-code.git
+```
+
+### Mirror-push to your new docs repository.
+
+```
+cd docs-as-code.git
+git push --mirror git@www-github3.cisco.com:cxe/new-docs-repo.git
+```
+
+### Remove the temporary local repository you created earlier.
+
+```
+cd ..
+rm -rf docs-as-code.git
+```
+
+Your new docs repo should now be ready for use.
+
 ## Building Docs
 
 All currently built PDF documents are found in the `dist` directory. Changes to
