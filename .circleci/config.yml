@@ -1,0 +1,40 @@
+version: 2
+jobs:
+
+  build:
+    docker:
+      - image: josdotso/pp:latest
+    steps:
+      - checkout
+      - run:
+          name: Build the docs.
+          command: make dist NO_DOCKER=true
+      - run:
+          name: Save the version to a file.
+          command: git --no-pager describe --always > dist/VERSION
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist
+
+  publish-github-release:
+    docker:
+      - image: cibuilds/github:0.10
+    steps:
+      - attach_workspace:
+          at: /wrk
+      - run:
+          name: "Publish Release on GitHub"
+          command: |
+            cd /wrk
+            VERSION=$(cat ./dist/VERSION)
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./dist
+
+workflows:
+  version: 2
+  build-and-publish:
+    jobs:
+      - build
+      - publish-github-release:
+          requires:
+            - build
