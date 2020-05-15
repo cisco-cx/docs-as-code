@@ -56,7 +56,7 @@ cd ..
 Make sure you are not in the <new folder> before you do this. 
 
 ```
-git clone --bare git@www-github3.cisco.com:cxe/docs-as-code.git
+git clone --bare git@github.com:cisco-sso/docs-as-code.git
 ```
 
 ### Mirror-push to your new docs repository.
