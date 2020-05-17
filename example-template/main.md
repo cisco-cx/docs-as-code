@@ -1,12 +1,12 @@
 ---
 title: The Title
-subtitle: 0.1.0
+subtitle: 0.1.0 - Confidentiality Statement Goes Here
 author: ["First Author1", "Second Author2"]
 titlepage: true
 toc-title: Table of Contents
 logo: ../common/images/logo.pdf
 listings-disable-line-numbers: true
-footer-left: 'Highly Confidential: X and Y Staff Only'
+footer-left: 'Confidentiality Statement Goes Here'
 !bash
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo "date: Build Date $(date --iso-8601=date)"

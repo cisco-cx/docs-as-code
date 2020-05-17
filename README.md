@@ -86,6 +86,18 @@ cd ..
 
 ```
 
+### Logo
+
+You probably want to change the logo for your document.  You will need a PDF.
+
+```
+cp <new logo pdf> common/images
+```
+
+You can either name your logo the detault "logo.pdf" or you can edit the main.md header to point to your new logo.
+
+### Ready!
+
 Your new docs repo should now be ready for use.
 
 ## Building Docs
