@@ -55,6 +55,46 @@ dist                           Build all doc pdfs and copy them to ./dist direct
 help                           Print list of Makefile targets
 ```
 
+## Usage
+
+The [repo](https://github.com/cisco-cx/docs-as-code) is a "template" repository. All you have to do is click the green "Use this template" button and instead of forking you can
+make a totally new repository using it as a template. You can then just work in that new repo.
+
+There's an example-template folder with a good working example.  The overall template is in common/pandoc/templates but the default is pretty usable. You will want to make your
+own logo and drop it into common/images instead of the very ugly generic logo that we put there as a placeholder.
+
+### Change the title in the Makefile
+
+To change the title of the output document, change the OUT_NAME in the Makefile:
+
+```
+OUT_NAME := example-template
+DIR_NAME := $(PWD)
+
+include ../common/Makefile
+```
+
+### Setting the Document Attributes
+
+To change the title, subtitle, and to control the various document attributes you can edit the "pp" directives in the main.md file:
+
+```
+---
+title: The Title
+subtitle: 0.1.0 - Confidentiality Statement Goes Here
+author: ["First Author1", "Second Author2"]
+titlepage: true
+toc-title: Table of Contents
+logo: ../common/images/logo.pdf
+listings-disable-line-numbers: true
+footer-left: 'Confidentiality Statement Goes Here'
+!bash
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+echo "date: Build Date $(date --iso-8601=date)"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---
+```
+
 ## Tips in General
 
 Some people craft the first version of their diagrams in other tools and then paste them into thier doc.  This [tool](http://magjac.com/graphviz-visual-editor/) is a powerful online WYSIWYG editor that is open source and you can host it yourself.
@@ -73,3 +113,51 @@ Some folks have good luck with Visual Studio and [this plugin](https://marketpla
 ## Tips for WYSIWYG Editing (on Windows)
 
 Someone with a Windows machine please add these instructions.
+
+## Usage
+
+The [repo](https://github.com/cisco-cx/docs-as-code) is a "template" repository. All you have to do is click the green "Use this template" button and instead of forking you can
+make a totally new repository using it as a template. You can then just work in that new repo.
+
+There's an example-template folder with a good working example.  The overall template is in common/pandoc/templates but the default is pretty usable. You will want to make your
+own logo and drop it into common/images instead of the very ugly generic logo that we put there as a placeholder.
+
+### Change the title in the Makefile
+
+To change the title of the output document, change the OUT_NAME in the Makefile:
+
+```
+OUT_NAME := example-template
+DIR_NAME := $(PWD)
+
+include ../common/Makefile
+```
+
+### Setting the Document Attributes
+
+To change the title, subtitle, and to control the various document attributes you can edit the "pp" directives in the main.md file:
+
+```
+---
+title: The Title
+subtitle: 0.1.0 - Confidentiality Statement Goes Here
+author: ["First Author1", "Second Author2"]
+titlepage: true
+toc-title: Table of Contents
+logo: ../common/images/logo.pdf
+listings-disable-line-numbers: true
+footer-left: 'Confidentiality Statement Goes Here'
+!bash
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+echo "date: Build Date $(date --iso-8601=date)"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---
+```
+
+## Credits
+
+The following folks did the heavy lifting on this effort:
+
+[Josh Dotson](https://github.com/josdotso)
+[David Wang](https://github.com/dcwangmit01)
+[Hang Xie](https://github.com/hangxie)
