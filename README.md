@@ -8,7 +8,7 @@ If you are creating a new repo for a documentation project, click the "Use this 
 
 ![Screen Shot](/images/screen-shot.png)
 
-You must rename that repo.  This is not a fork, it's just a way to start with the same repo as a template for your work.  This is probably waht you want to do.
+You must rename that repo.  This is not a fork, it's just a way to start with the same repo as a template for your work.  This is probably what you want to do.
 
 ## Creating a New Document
 
